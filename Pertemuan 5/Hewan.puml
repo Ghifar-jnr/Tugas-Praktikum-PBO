@@ -1,0 +1,46 @@
+@startuml
+abstract class Animal {
+    #legs : int
+    #Animal(legs: int)
+    +walk()
+    +eat() <<abstract>>
+}
+
+interface Pet {
+    +setName(name: String)
+    +getName() : String
+    +play()
+}
+
+class Spider {
+    +Spider()
+    +eat()
+}
+
+class Dog {
+    -name : String
+    +Dog() 
+    +getName(): String
+    +setName(name: String) 
+    +play() 
+    +eat() 
+    +walk() 
+}
+
+class Cat {
+    -name : String
+    +Cat(name: String)
+    +Cat()
+    +getName() : String
+    +setName(name: String)
+    +play()
+    +eat()
+    +walk()
+}
+
+Animal <|-- Spider
+Animal <|-- Dog
+Animal <|-- Cat
+Pet <|.. Dog
+Pet <|.. Cat
+@enduml
